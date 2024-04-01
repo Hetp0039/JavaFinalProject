@@ -7,4 +7,5 @@ public interface AlertDao {
     void save(Alert alert);
     void delete(int alertId);
     List<Alert> getAllAlerts();
+	List<Alert> getAlertsByUserId(int userId);
 }

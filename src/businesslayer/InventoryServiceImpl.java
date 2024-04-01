@@ -15,7 +15,7 @@ public class InventoryServiceImpl implements InventoryService {
 
     @Override
     public List<Inventory> getInventoryByUserId(int userId) {
-        return inventoryDao.getInventoryByUserId(userId);
+        return inventoryDao.getInventoryItemsByUserId(userId);
     }
     // Implement other InventoryService methods
 }

@@ -9,5 +9,6 @@ public interface FoodItemDao {
     void update(FoodItem foodItem);
     void delete(int itemId);
     List<FoodItem> getAllFoodItems();
+	FoodItem getFoodItemById(int itemId);
 }
 

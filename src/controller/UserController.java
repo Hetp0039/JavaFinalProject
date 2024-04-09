@@ -4,11 +4,12 @@ import java.util.List;
 import java.util.Scanner;
 
 import dataaccesslayer.UserDao;
+import dataaccesslayer.UserDaoImpl;
 import model.User;
 
 public class UserController {
-    private final UserDao userDao;
-    private final Scanner scanner;
+    private  UserDao userDao;
+    private  Scanner scanner;
 
     public UserController(UserDao userDao, Scanner scanner) {
         this.userDao = userDao;
@@ -35,7 +36,8 @@ public class UserController {
     }
 
     public List<User> getAllUsers() {
-        return userDao.getAllUsers();
+    	UserDao userDao2 = new UserDaoImpl();
+        return userDao2.getAllUsers();
     }
 
     public void manageUsers() {
@@ -102,9 +104,15 @@ public class UserController {
             String name = scanner.nextLine();
             System.out.print("Email: ");
             String email = scanner.nextLine();
-            // Assuming you have other fields like age, address, etc., collect them similarly
+            System.out.println("Password");
+            String Password=scanner.nextLine();
+            System.out.print("User Type: ");
+            String userType = scanner.nextLine();
+            
             existingUser.setName(name);
             existingUser.setEmail(email);
+            existingUser.setPassword(Password);
+            existingUser.setUserType(userType);
             updateUser(existingUser);
         } else {
             System.out.println("User with ID " + userId + " not found.");

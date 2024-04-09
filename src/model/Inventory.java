@@ -53,8 +53,8 @@ public class Inventory {
         this.quantity = quantity;
     }
 
-    public Date getExpirationDate() {
-        return expirationDate;
+    public java.sql.Date getExpirationDate() {
+        return (java.sql.Date) expirationDate;
     }
 
     public void setExpirationDate(Date expirationDate) {

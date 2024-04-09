@@ -9,4 +9,6 @@ public interface InventoryDao {
     void update(Inventory item);
     void delete(int itemId);
     List<Inventory> getInventoryItemsByUserId(int userId);
+	Inventory getInventoryById(int itemId);
+	List<Inventory> getAllInventory();
 }

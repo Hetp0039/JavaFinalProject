@@ -15,21 +15,23 @@ public class UserController {
         this.scanner = scanner;
     }
 
- 
-	public void registerUser(User user) {
+    public void registerUser(User user) {
         userDao.save(user);
+        System.out.println("User registered successfully.");
     }
 
-    public User getUserByEmail(String email) {
-        return userDao.getUserByEmail(email);
+    public User getUserByEmail(String userId) {
+        return userDao.getUserByEmail(userId);
     }
 
     public void updateUser(User user) {
         userDao.update(user);
+        System.out.println("User updated successfully.");
     }
 
     public void deleteUser(int userId) {
         userDao.delete(userId);
+        System.out.println("User deleted successfully.");
     }
 
     public List<User> getAllUsers() {
@@ -44,8 +46,7 @@ public class UserController {
         System.out.println("4. View All Users");
         System.out.println("5. Go Back");
 
-        int choice = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        int choice = getUserInput();
 
         switch (choice) {
             case 1:
@@ -69,20 +70,63 @@ public class UserController {
         }
     }
 
-    private void registerUserMenu() {
-        // Logic for registering a new user
+    private int getUserInput() {
+        System.out.print("Enter your choice: ");
+        int choice = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+        return choice;
     }
 
+    private void registerUserMenu() {
+        System.out.println("Enter user details:");
+        System.out.print("Name: ");
+        String name = scanner.nextLine();
+        System.out.print("Email: ");
+        String email = scanner.nextLine();
+        System.out.print("Password: ");
+        String password = scanner.nextLine();
+        System.out.print("User Type: ");
+        String userType = scanner.nextLine();
+        
+        User newUser = new User(name, email, password, userType);
+        registerUser(newUser);
+    }
     private void updateUserMenu() {
-        // Logic for updating a user
+        System.out.print("Enter user ID to update: ");
+        String userId = scanner.toString();
+        scanner.nextLine(); // Consume newline
+        User existingUser = getUserByEmail(userId);
+        if (existingUser != null) {
+            System.out.println("Enter updated details:");
+            System.out.print("Name: ");
+            String name = scanner.nextLine();
+            System.out.print("Email: ");
+            String email = scanner.nextLine();
+            // Assuming you have other fields like age, address, etc., collect them similarly
+            existingUser.setName(name);
+            existingUser.setEmail(email);
+            updateUser(existingUser);
+        } else {
+            System.out.println("User with ID " + userId + " not found.");
+        }
     }
 
     private void deleteUserMenu() {
-        // Logic for deleting a user
+        System.out.print("Enter user ID to delete: ");
+        int userId = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+        deleteUser(userId);
     }
 
     private void viewAllUsers() {
         List<User> users = getAllUsers();
-        // Display users
+        if (users.isEmpty()) {
+            System.out.println("No users found.");
+        } else {
+            System.out.println("List of users:");
+            for (User user : users) {
+                System.out.println(user);
+            }
+        }
     }
 }

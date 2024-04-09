@@ -22,7 +22,7 @@ public class Application {
         // Create instances of controllers
         UserController userController = new UserController(userDao, scanner);
         FoodItemController foodItemController = new FoodItemController(foodItemDao,scanner);
-        ClaimController claimController = new ClaimController(claimDao);
+        ClaimController claimController = new ClaimController(claimDao,scanner);
 
         // Create instance of BusinessLogic
         BusinessLogic businessLogic = new BusinessLogic(userController, foodItemController, claimController, scanner);

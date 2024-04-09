@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.util.List;
 import model.Claim;
 
-public class ClaimDaoImpl implements ClaimDao {
+public  class ClaimDaoImpl implements ClaimDao {
     public ClaimDaoImpl(Connection connection) {
     }
 

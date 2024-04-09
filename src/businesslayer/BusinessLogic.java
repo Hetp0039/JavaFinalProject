@@ -36,7 +36,7 @@ public class BusinessLogic {
     }
 
     private void initializeDatabase() {
-        String url = "jdbc:mysql://localhost:3306/Java Final Project";
+        String url = "jdbc:mysql://127.0.0.1:3306/javafinalproject";
         String username = "root";
         String password = "Het@00000";
 
@@ -47,9 +47,10 @@ public class BusinessLogic {
             statement.executeUpdate("CREATE DATABASE FWRP");
             statement.executeUpdate("USE FWRP");
 
-            // Execute SQL script
-            String sqlScript = "<FWRP>"; // Replace <Your SQL script> with the provided SQL script
-            statement.executeUpdate(sqlScript);
+            // Execute SQL script to create tables
+            String createTablesSQL = "CREATE TABLE Users (userId INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), email VARCHAR(255), password VARCHAR(255), userType VARCHAR(50))";
+            statement.executeUpdate(createTablesSQL);
+            // Add more SQL statements to create other tables if needed
 
             System.out.println("Database initialized successfully.");
         } catch (SQLException e) {

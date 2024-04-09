@@ -27,8 +27,8 @@ public class CharitableOrganizationController {
         charitableOrganizationDao.update(organization);
     }
 
-    public void deleteCharitableOrganization(int organizationId) {
-        charitableOrganizationDao.delete(organizationId);
+    public void deleteCharitableOrganization(int User_Id) {
+        charitableOrganizationDao.delete(User_Id);
     }
 
     public List<CharitableOrganization> getAllCharitableOrganizations() {
@@ -69,19 +69,75 @@ public class CharitableOrganizationController {
     }
 
     private void registerCharitableOrganizationMenu() {
-        // Logic for registering a new charitable organization
+        System.out.println("Register New Charitable Organization");
+        System.out.print("Enter name: ");
+        String name = scanner.nextLine();
+        System.out.print("Enter email: ");
+        String email = scanner.nextLine();
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine();
+        System.out.print("Enter user type: ");
+        String userType = scanner.nextLine();
+
+        CharitableOrganization organization = new CharitableOrganization(name, email, password, userType);
+        registerCharitableOrganization(organization);
+        System.out.println("Charitable Organization registered successfully.");
     }
 
     private void updateCharitableOrganizationMenu() {
-        // Logic for updating a charitable organization
+        System.out.println("Update Charitable Organization");
+        System.out.print("Enter organization ID: ");
+        int User_Id = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+        CharitableOrganization organization = getCharitableOrganizationById(User_Id);
+        if (organization != null) {
+            System.out.print("Enter new name: ");
+            String name = scanner.nextLine();
+            System.out.print("Enter new email: ");
+            String email = scanner.nextLine();
+            System.out.print("Enter new password: ");
+            String password = scanner.nextLine();
+            System.out.print("Enter new user type: ");
+            String userType = scanner.nextLine();
+
+            organization.setName(name);
+            organization.setEmail(email);
+            organization.setPassword(password);
+            organization.setUserType(userType);
+
+            updateCharitableOrganization(organization);
+            System.out.println("Charitable Organization updated successfully.");
+        } else {
+            System.out.println("Charitable Organization with ID " + User_Id + " not found.");
+        }
     }
 
     private void deleteCharitableOrganizationMenu() {
-        // Logic for deleting a charitable organization
+        System.out.println("Delete Charitable Organization");
+        System.out.print("Enter organization ID: ");
+        int User_Id = scanner.nextInt();
+       // scanner.nextLine(); // Consume newline
+  
+        deleteCharitableOrganization(User_Id);
+        System.out.println("Charitable Organization deleted successfully.");
+        
     }
 
     private void viewAllCharitableOrganizations() {
         List<CharitableOrganization> organizations = getAllCharitableOrganizations();
-        // Display all charitable organizations
+        System.out.println("All Charitable Organizations:");
+        for (CharitableOrganization organization : organizations) {
+            System.out.println(organization);
+        }
+    }
+
+    private CharitableOrganization getCharitableOrganizationById(int organizationId) {
+        List<CharitableOrganization> organizations = getAllCharitableOrganizations();
+        for (CharitableOrganization organization : organizations) {
+            if (organization.getUserId() == organizationId) {
+                return organization;
+            }
+        }
+        return null;
     }
 }

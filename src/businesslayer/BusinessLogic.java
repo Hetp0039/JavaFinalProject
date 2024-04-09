@@ -4,8 +4,9 @@ import java.util.Scanner;
 import controller.UserController;
 import controller.FoodItemController;
 import controller.RetailerController;
+import controller.CharitableOrganizationController;
 import controller.ClaimController;
-import controller.InventoryController; // Import InventoryController
+import controller.InventoryController;
 
 public class BusinessLogic {
 
@@ -13,15 +14,17 @@ public class BusinessLogic {
     private FoodItemController foodItemController;
     private ClaimController claimController;
     private RetailerController retailerController;
-    private InventoryController inventoryController; // Add InventoryController
+    private InventoryController inventoryController;
+    private CharitableOrganizationController charitableOrganizationController; // Add CharitableOrganizationController
     private Scanner scanner;
 
-    public BusinessLogic(UserController userController, FoodItemController foodItemController, ClaimController claimController, RetailerController retailerController, InventoryController inventoryController, Scanner scanner) {
+    public BusinessLogic(UserController userController, FoodItemController foodItemController, ClaimController claimController, RetailerController retailerController, InventoryController inventoryController, CharitableOrganizationController charitableOrganizationController, Scanner scanner) {
         this.userController = userController;
         this.foodItemController = foodItemController;
         this.claimController = claimController;
         this.retailerController = retailerController;
-        this.inventoryController = inventoryController; // Initialize InventoryController
+        this.inventoryController = inventoryController;
+        this.charitableOrganizationController = charitableOrganizationController; // Initialize CharitableOrganizationController
         this.scanner = scanner;
     }
 
@@ -40,8 +43,9 @@ public class BusinessLogic {
         System.out.println("2. Food Item Management");
         System.out.println("3. Transaction Management");
         System.out.println("4. Retailer Management");
-        System.out.println("5. Inventory Management"); // Add inventory management option
-        System.out.println("6. Exit");
+        System.out.println("5. Inventory Management");
+        System.out.println("6. Charitable Organization Management"); // Add charitable organization management option
+        System.out.println("7. Exit");
 
         int choice = scanner.nextInt();
         scanner.nextLine();
@@ -60,9 +64,12 @@ public class BusinessLogic {
                 retailerController.manageRetailers();
                 break;
             case 5:
-                inventoryController.manageInventory(); // Call inventory management method
+                inventoryController.manageInventory();
                 break;
             case 6:
+                charitableOrganizationController.manageCharitableOrganizations(); // Call charitable organization management method
+                break;
+            case 7:
                 System.out.println("Exiting...");
                 System.exit(0);
                 break;

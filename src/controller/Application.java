@@ -12,6 +12,8 @@ import dataaccesslayer.ClaimDaoImpl;
 import dataaccesslayer.InventoryDaoImpl;
 import dataaccesslayer.RetailerDaoImpl;
 import dataaccesslayer.RetailerDao;
+import dataaccesslayer.CharitableOrganizationDao;
+import dataaccesslayer.CharitableOrganizationDaoImpl;
 
 public class Application {
 
@@ -20,8 +22,9 @@ public class Application {
         UserDao userDao = new UserDaoImpl();
         FoodItemDao foodItemDao = new FoodItemDaoImpl();
         ClaimDao claimDao = new ClaimDaoImpl();
-        RetailerDao retailerDao = new RetailerDaoImpl(); // Import RetailerDao and RetailerDaoImpl if not already done
+        RetailerDao retailerDao = new RetailerDaoImpl();
         InventoryDao inventoryDao = new InventoryDaoImpl();
+        CharitableOrganizationDao charitableOrganizationDao = new CharitableOrganizationDaoImpl(); // Instantiate CharitableOrganizationDao
         Scanner scanner = new Scanner(System.in);
 
         // Create instances of controllers
@@ -30,9 +33,10 @@ public class Application {
         ClaimController claimController = new ClaimController(claimDao, scanner);
         RetailerController retailerController = new RetailerController(retailerDao, scanner);
         InventoryController inventoryController = new InventoryController(inventoryDao, scanner);
+        CharitableOrganizationController charitableOrganizationController = new CharitableOrganizationController(charitableOrganizationDao, scanner); // Instantiate CharitableOrganizationController
 
         // Create instance of BusinessLogic
-        BusinessLogic businessLogic = new BusinessLogic(userController, foodItemController, claimController, retailerController, inventoryController, scanner);
+        BusinessLogic businessLogic = new BusinessLogic(userController, foodItemController, claimController, retailerController, inventoryController, charitableOrganizationController, scanner); // Pass charitableOrganizationController to BusinessLogic
 
         // Start the application
         businessLogic.start();

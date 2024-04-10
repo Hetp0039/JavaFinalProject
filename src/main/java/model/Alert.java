@@ -7,7 +7,7 @@ public class Alert {
     private String communicationMethod;
     private String foodPreferences;
 
-    // Constructors
+   
     public Alert() {
     }
 
@@ -18,7 +18,7 @@ public class Alert {
         this.foodPreferences = foodPreferences;
     }
 
-    // Getters and Setters
+    
     public int getAlertId() {
         return alertId;
     }

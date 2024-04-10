@@ -7,7 +7,7 @@ public class Retailer {
     private String password;
     private String userType;
 
-    // Constructors
+    
     public Retailer() {
     }
 
@@ -18,7 +18,7 @@ public class Retailer {
         this.userType = userType;
     }
 
-    // Getters and Setters
+    
     public int getUserId() {
         return userId;
     }

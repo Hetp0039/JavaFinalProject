@@ -16,6 +16,6 @@ public class AlertServiceImpl implements AlertService {
     public List<Alert> getAlertsByUserId(int userId) {
         return alertDao.getAlertsByUserId(userId);
     }
-    // Implement other AlertService methods
+    
 }
 

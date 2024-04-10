@@ -46,7 +46,7 @@ public class FoodItemController {
         System.out.println("5. Go Back");
 
         int choice = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
 
         switch (choice) {
             case 1:
@@ -78,17 +78,17 @@ public class FoodItemController {
         String itemType = scanner.nextLine();
         System.out.print("Quantity: ");
         int quantity = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine();
         System.out.print("Expiration Date (yyyy-MM-dd): ");
         Date expirationDate = null;
         try {
             expirationDate = new SimpleDateFormat("yyyy-MM-dd").parse(scanner.nextLine());
         } catch (ParseException e) {
-            e.printStackTrace(); // Handle parsing exception
+            e.printStackTrace(); 
         }
         System.out.print("Price: ");
         BigDecimal price = scanner.nextBigDecimal();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
 
         FoodItem newFoodItem = new FoodItem(itemName, itemType, quantity, expirationDate, price);
         addFoodItem(newFoodItem);
@@ -97,7 +97,7 @@ public class FoodItemController {
     private void updateFoodItemMenu() {
         System.out.print("Enter item ID to update: ");
         int itemId = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
         FoodItem existingItem = foodItemDao.getFoodItemById(itemId);
         if (existingItem != null) {
             System.out.println("Enter updated details for item ID " + itemId + ":");
@@ -107,18 +107,18 @@ public class FoodItemController {
             existingItem.setItemType(scanner.nextLine());
             System.out.print("Quantity: ");
             existingItem.setQuantity(scanner.nextInt());
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine(); 
             System.out.print("Expiration Date (yyyy-MM-dd): ");
             Date expirationDate = null;
             try {
                 expirationDate = new SimpleDateFormat("yyyy-MM-dd").parse(scanner.nextLine());
             } catch (ParseException e) {
-                e.printStackTrace(); // Handle parsing exception
+                e.printStackTrace(); 
             }
             existingItem.setExpirationDate(expirationDate);
             System.out.print("Price: ");
             existingItem.setPrice(scanner.nextBigDecimal());
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine(); 
             updateFoodItem(existingItem);
         } else {
             System.out.println("Food item with ID " + itemId + " not found.");
@@ -128,7 +128,7 @@ public class FoodItemController {
     private void removeFoodItemMenu() {
         System.out.print("Enter item ID to remove: ");
         int itemId = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
         removeFoodItem(itemId);
     }
 

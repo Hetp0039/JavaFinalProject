@@ -8,7 +8,7 @@ public class Claim {
     private int itemId;
     private Date claimDate;
 
-    // Constructors
+    
     public Claim() {
     }
 
@@ -18,7 +18,7 @@ public class Claim {
         this.claimDate = claimDate;
     }
 
-    // Getters and Setters
+    
     public int getClaimId() {
         return claimId;
     }

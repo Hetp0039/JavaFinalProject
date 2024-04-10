@@ -49,7 +49,7 @@ public class InventoryController {
         System.out.println("5. Go Back");
 
         int choice = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
 
         switch (choice) {
             case 1:
@@ -78,13 +78,13 @@ private void addInventoryMenu() {
     System.out.println("Enter inventory details:");
     System.out.print("User ID: ");
     int userId = scanner.nextInt();
-    scanner.nextLine(); // Consume newline
+    scanner.nextLine(); 
     System.out.print("Item ID: ");
     int itemId = scanner.nextInt();
-    scanner.nextLine(); // Consume newline
+    scanner.nextLine(); 
     System.out.print("Quantity: ");
     int quantity = scanner.nextInt();
-    scanner.nextLine(); // Consume newline
+    scanner.nextLine(); 
     System.out.print("Expiration Date (yyyy-MM-dd): ");
     String dateString = scanner.nextLine();
 
@@ -94,12 +94,12 @@ private void addInventoryMenu() {
         expirationDate = dateFormat.parse(dateString);
     } catch (ParseException e) {
         System.out.println("Invalid date format. Please enter the date in yyyy-MM-dd format.");
-        return; // Exit the method if date parsing fails
+        return; 
     }
-        // Create a new Inventory object with the provided details
+       
         Inventory newInventory = new Inventory(userId, itemId, quantity, expirationDate);
 
-        // Call addInventory method passing the new Inventory object
+        
         addInventory(newInventory);
     }
 

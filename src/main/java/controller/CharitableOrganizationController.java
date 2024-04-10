@@ -88,7 +88,7 @@ public class CharitableOrganizationController {
         System.out.println("Update Charitable Organization");
         System.out.print("Enter organization ID: ");
         int User_Id = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
         CharitableOrganization organization = getCharitableOrganizationById(User_Id);
         if (organization != null) {
             System.out.print("Enter new name: ");
@@ -116,7 +116,7 @@ public class CharitableOrganizationController {
         System.out.println("Delete Charitable Organization");
         System.out.print("Enter organization ID: ");
         int User_Id = scanner.nextInt();
-       // scanner.nextLine(); // Consume newline
+       
   
         deleteCharitableOrganization(User_Id);
         System.out.println("Charitable Organization deleted successfully.");

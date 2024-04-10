@@ -7,7 +7,7 @@ public class CharitableOrganization {
     private String password;
     private String userType;
 
-    // Constructors
+    
     public CharitableOrganization() {
     }
 
@@ -18,7 +18,7 @@ public class CharitableOrganization {
         this.userType = userType;
     }
 
-    // Getters and Setters
+    
     public int getUserId() {
         return userId;
     }

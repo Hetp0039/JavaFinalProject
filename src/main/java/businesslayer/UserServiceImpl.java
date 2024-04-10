@@ -17,9 +17,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void registerUser(User user) {
-        // Perform any necessary validation or business logic
         userDao.save(user);
     }
-    // Implement other UserService methods
+   
 }
 

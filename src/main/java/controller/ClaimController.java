@@ -64,16 +64,16 @@ public class ClaimController {
         System.out.println("Enter claim details:");
         System.out.print("User ID: ");
         int userId = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
         System.out.print("Item ID: ");
         int itemId = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
         System.out.print("Claim Date (yyyy-MM-dd): ");
         Date claimDate = null;
         try {
             claimDate = new SimpleDateFormat("yyyy-MM-dd").parse(scanner.nextLine());
         } catch (ParseException e) {
-            e.printStackTrace(); // Handle parsing exception
+            e.printStackTrace(); 
         }
 
         Claim newClaim = new Claim(userId, itemId, claimDate);
@@ -83,7 +83,7 @@ public class ClaimController {
     private void removeClaimMenu() {
         System.out.print("Enter claim ID to remove: ");
         int claimId = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
         removeClaim(claimId);
     }
 
@@ -99,7 +99,6 @@ public class ClaimController {
         }
     }
 
-    // This method was missing before, added to resolve the compilation error
     public void manageClaim() {
         manageClaims();
     }

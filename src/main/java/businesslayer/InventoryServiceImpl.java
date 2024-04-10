@@ -17,5 +17,5 @@ public class InventoryServiceImpl implements InventoryService {
     public List<Inventory> getInventoryByUserId(int userId) {
         return inventoryDao.getInventoryItemsByUserId(userId);
     }
-    // Implement other InventoryService methods
+    
 }

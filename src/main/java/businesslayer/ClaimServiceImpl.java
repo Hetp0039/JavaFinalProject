@@ -12,7 +12,7 @@ public class ClaimServiceImpl implements ClaimService {
 
     @Override
     public void submitClaim(Claim claim) {
-        // Perform any necessary validation or business logic
+       
         claimDao.save(claim);
     }
   

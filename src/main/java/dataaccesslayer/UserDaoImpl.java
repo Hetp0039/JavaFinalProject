@@ -45,8 +45,8 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User getUserByEmail(String email) {
-        // Implement logic to retrieve a user by email from the database
-        return null; // Placeholder return value
+       
+        return null; 
     }
 
     @Override

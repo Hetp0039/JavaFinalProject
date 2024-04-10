@@ -9,7 +9,7 @@ public class Inventory {
     private int quantity;
     private Date expirationDate;
 
-    // Constructors
+    
     public Inventory() {
     }
 
@@ -20,7 +20,7 @@ public class Inventory {
         this.expirationDate = expirationDate;
     }
 
-    // Getters and Setters
+    
     public int getInventoryId() {
         return inventoryId;
     }

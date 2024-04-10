@@ -122,7 +122,7 @@ public class UserController {
     private void deleteUserMenu() {
         System.out.print("Enter user ID to delete: ");
         int userId = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine(); 
         deleteUser(userId);
     }
 

@@ -11,7 +11,7 @@ public class FoodItem {
     private Date expirationDate;
     private BigDecimal price;
 
-    // Constructors
+    
     public FoodItem() {
     }
 
@@ -23,7 +23,7 @@ public class FoodItem {
         this.price = price;
     }
 
-    // Getters and Setters
+   
     public int getItemId() {
         return itemId;
     }

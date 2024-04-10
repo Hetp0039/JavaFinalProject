@@ -105,12 +105,12 @@ public class RetailerController {
     private void removeRetailerMenu() {
         System.out.print("Enter retailer ID to remove: ");
         int retailerId = scanner.nextInt();
-        scanner.nextLine(); // Consume newline
-        removeRetailer(retailerId); // Corrected method call
+        scanner.nextLine();
+        removeRetailer(retailerId); 
     }
 
     private void viewAllRetailers() {
-        List<Retailer> retailers = getAllRetailers(); // Corrected method call
+        List<Retailer> retailers = getAllRetailers(); 
         if (retailers.isEmpty()) {
             System.out.println("No retailers found.");
         } else {

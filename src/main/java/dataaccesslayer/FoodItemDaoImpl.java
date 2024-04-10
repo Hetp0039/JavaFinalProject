@@ -44,8 +44,8 @@ public class FoodItemDaoImpl implements FoodItemDao {
         }
     }
     public FoodItem getFoodItemById(int itemId) {
-        // Implement logic to retrieve a food item by ID from the database
-        return null; // Placeholder return value
+        
+        return null; 
     }
     @Override
     public void update(FoodItem foodItem) {
